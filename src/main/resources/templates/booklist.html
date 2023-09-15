@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Book List</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1>Books</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Publication Year</th>
+                <th>ISBN</th>
+                <th>Price</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Use Thymeleaf to loop through the list of books and display them -->
+            <tr th:each="book : ${books}">
+                <td th:text="${book.id}">1</td>
+                <td th:text="${book.title}">Text ...</td>
+                <td th:text="${book.author}">Text ...</td>
+                <td th:text="${book.publicationYear}">Text ...</td>
+                <td th:text="${book.isbn}">Text ...</td>
+                <td th:text="${book.price}">Text ...</td>
+                <td th:text="${book.category.name}">Text ...</td>
+                <td><a th:href="@{/delete/{id}(id=${book.id})}">Delete</a></td>
+                <td><a th:href="@{/edit/{id}(id=${book.id})}">Edit</a></td>
+            </tr>
+        </tbody>
+        <a href="/add" class="btn btn-primary">Add Book</a>
+    </table>
+</body>
+</html>
