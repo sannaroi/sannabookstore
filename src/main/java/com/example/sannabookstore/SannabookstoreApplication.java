@@ -20,6 +20,8 @@ public class SannabookstoreApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SannabookstoreApplication.class, args);
 	}
+	
+	
 
 	@Bean
 	public CommandLineRunner bookDemo(BookRepository repository, CategoryRepository crepository) {
@@ -34,7 +36,7 @@ public class SannabookstoreApplication {
 			repository.save(new Book("Edgar Rice Burroughs", "John Carter", "030-2630-0-85-0768", 1964, 16,
 					crepository.findByName("Adventure").get(0)));
 
-			log.info("fetch all students");
+			log.info("fetch all books");
 			for (Book book : repository.findAll()) {
 				log.info(book.toString());
 			}
