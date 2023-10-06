@@ -22,6 +22,7 @@ public class SannabookstoreApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SannabookstoreApplication.class, args);
 	}
+
 	//https://github.com/sannaroi/sannabookstore.git
 	
 
