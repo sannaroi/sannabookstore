@@ -15,7 +15,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import com.example.sannabookstore.domain.AppUser;
 import com.example.sannabookstore.domain.AppUserRepository;
 
-@ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = SannabookstoreApplication.class)
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 
@@ -26,10 +25,9 @@ public class AppUserRepositoryTest {
 
     @Test
     public void findByUsernameShouldReturnAppUser() {
-        List<AppUser> appusers = urepository.findByUsername("ADMIN");
-        
-        assertThat(appusers).hasSize(1);
-        assertThat(appusers.get(0).getUsername()).isEqualTo("admin");
+        AppUser appusers = urepository.findByUsername("ADMIN");
+       
+        assertThat(appusers.getUsername()).isEqualTo("admin");
     }
     
     @Test
